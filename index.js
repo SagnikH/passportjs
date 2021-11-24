@@ -44,5 +44,5 @@ app.use("/profile", checkUser, profileRoutes);
 
 app.get("/", (req, res) => {
 	console.log(req.user);
-	res.render("index");
+	res.render("index", {user : req.user});
 });

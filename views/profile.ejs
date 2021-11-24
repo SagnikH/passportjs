@@ -5,17 +5,15 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Passportjs</title>
-		<%- include("./partials/_styles.ejs") %>
+		<%- include("./partials/_styles") %>
 	</head>
 	<body>
-		<%- include("./partials/_navbar.ejs") %>
-
+		<%- include("./partials/_navbar") %>
 		<header>
-			<h1>Passportjs auth test</h1>
-			<h2>Homepage</h2>
+			<h1>Welcome to your profile, <%= locals.user.name %></h1>
 		</header>
 		<main>
-			<p>Welcome to Home Page</p>
+			<p>Email id : <%= locals.user.email %></p>
 		</main>
 	</body>
 </html>

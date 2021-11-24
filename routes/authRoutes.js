@@ -25,4 +25,10 @@ router.get(
 	}
 );
 
+router.get("/logout", (req, res) => {
+	//logout is handled by 
+	req.logout();
+	res.redirect("/");
+})
+
 module.exports = router;

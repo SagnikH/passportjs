@@ -26,7 +26,7 @@ passport.use(
 			callbackURL: "http://localhost:3000/auth/google/callback",
 		},
 		async function (accessToken, refreshToken, bearer, info, done) {
-			const { email, name, sub } = info._json;
+			const { email, name, sub, picture } = info._json;
 
 			try {
 				var user = await User.findOne({ email });
@@ -35,14 +35,14 @@ passport.use(
 					console.log(`user present ${user}`);
 					done(null, user);
 				} else {
-					user = await User.create({ email, name, googleID: sub });
+					user = await User.create({ email, name, googleID: sub, picture });
 					console.log(`user created ${user}`);
 					done(null, user);
 				}
 			} catch (e) {
 				console.log(e);
 			}
-			// console.log(info);
+			console.log(info);
 		}
 	)
 );
